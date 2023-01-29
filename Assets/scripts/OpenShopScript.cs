@@ -7,13 +7,15 @@ public class OpenShopScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject shopImage;
 
+
+
     public void DisplayShop()
     {
-        if(shopImage.activeSelf)
-        {
-            shopImage.SetActive(false);
-            return;
-        }
         shopImage.SetActive(true);
+    }
+
+    public void HideShop()
+    {
+        shopImage.SetActive(false);
     }
 }
