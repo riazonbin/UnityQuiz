@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Assets.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizCore.Models
+namespace Assets.Core.Models
 {
     public class QuizKeyboard
     {
@@ -13,13 +14,13 @@ namespace QuizCore.Models
 
         public QuizKeyboard(string questionAnswer)
         {
-            foreach(char c in questionAnswer.ToUpper())
+            foreach (char c in questionAnswer.ToUpper())
             {
                 CharList.Add(c);
             }
 
             Random random = new Random();
-            for(int i = CharList.Count; i < CharCount; i++)
+            for (int i = CharList.Count; i < CharCount; i++)
             {
                 CharList.Add((char)random.Next('А', 'Я' + 1));
             }

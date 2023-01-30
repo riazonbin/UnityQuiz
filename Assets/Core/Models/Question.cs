@@ -1,4 +1,4 @@
-﻿namespace QuizCore.Models
+﻿namespace Assets.Core.Models
 {
     public class Question
     {

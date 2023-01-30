@@ -1,8 +1,8 @@
-﻿using QuizCore.Models;
+﻿using Assets.Core.Models;
 using System;
 using System.Collections.Generic;
 
-namespace QuizCore
+namespace Assets.Core
 {
     public class Game
     {
@@ -35,12 +35,12 @@ namespace QuizCore
         public void GetRandomQuestion()
         {
             Random random = new Random();
-            if(Questions.Count == 0)
+            if (Questions.Count == 0)
             {
                 GameWin();
             }
 
-            if(currentQuestion is not null)
+            if (currentQuestion is not null)
             {
                 Questions.Remove(currentQuestion);
             }
@@ -49,7 +49,7 @@ namespace QuizCore
 
         public void NextQuestion()
         {
-            if(!IsWordPassed)
+            if (!IsWordPassed)
             {
                 ReduceHealth();
             }
@@ -59,30 +59,29 @@ namespace QuizCore
 
         public List<Question> GetAllQuestions()
         {
-            Random rnd = new Random();
             //QuizCore.Database.MongoConnection connection = new QuizCore.Database.MongoConnection();
             //var collection = connection.GetAllQuestions();
 
             //return Questions = collection.ShuffleList();
-            return new List<Question>();
+            return Questions = DefaultQuestions.Questions.ShuffleList();
         }
 
         public bool CheckWord(string word)
         {
-            if(currentQuestion.Answer.ToUpper() == word.ToUpper())
+            if (currentQuestion.Answer.ToUpper() == word.ToUpper())
             {
                 PassedWords++;
                 IsWordPassed = true;
                 return true;
             }
             ReduceHealth();
-            IsWordPassed= false;
+            IsWordPassed = false;
             return false;
         }
 
         public bool ReduceHealth()
         {
-            if(Health == 1)
+            if (Health == 1)
             {
                 GameOver();
                 return false;
@@ -94,7 +93,7 @@ namespace QuizCore
         public void RestoreData()
         {
             Health = DefaultHealth;
-            PassedWords= DefaultPassedWords;
+            PassedWords = DefaultPassedWords;
         }
     }
 }
