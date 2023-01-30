@@ -13,7 +13,7 @@ public class CreateKeyboard : MonoBehaviour
         for(int i = 0; i < 40; i++)
         {
             var btn = Instantiate(preFab, panel);
-            btn.GetComponentInChildren<Text>().text = ((char)Random.RandomRange('À', 'ß' + 1)).ToString();
+            btn.GetComponentInChildren<Text>().text = ((char)Random.Range('À', 'ß' + 1)).ToString();
             
         }
     }

@@ -7,7 +7,10 @@ namespace QuizCore
     public class Game
     {
         public int PassedWords { get; set; }
+#nullable enable
         public Question? currentQuestion { get; set; }
+        public List<Question>? Questions { get; set; }
+#nullable disable
         public int Health { get; set; }
 
         public const int DefaultHealth = 5;
@@ -15,7 +18,6 @@ namespace QuizCore
 
         public bool IsWordPassed { get; set; } = false;
 
-        public List<Question>? Questions { get; set; }
 
         public delegate void GameOverDelegate();
         public GameOverDelegate GameOver;

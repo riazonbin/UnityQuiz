@@ -9,12 +9,11 @@ public class AnswerScript : MonoBehaviour
     public GameObject preFab;
     public Transform panel;
     public GameObject text;
-    public CreateKeyboard ck;
 
     // Start is called before the first frame update
     void Start()
     {
-        var question = Answers[Random.RandomRange(0, Answers.Count - 1)];
+        var question = Answers[Random.Range(0, Answers.Count - 1)];
         text.GetComponent<Text>().text = question.Description;
 
         for(int i = 0; i < question.Answer.Length; i++)
