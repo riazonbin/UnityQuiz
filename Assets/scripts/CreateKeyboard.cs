@@ -1,3 +1,4 @@
+using Assets.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,16 @@ public class CreateKeyboard : MonoBehaviour
 {
     public GameObject preFab;
     public Transform panel;
+    public GameCreation gameCreation;
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 40; i++)
+        Game game = gameCreation.game;
+
+        foreach(var letter in game.Keyboard.CharList)
         {
             var btn = Instantiate(preFab, panel);
-            btn.GetComponentInChildren<Text>().text = ((char)Random.Range('À', 'ß' + 1)).ToString();
+            btn.GetComponentInChildren<Text>().text = letter.ToString();
             
         }
     }

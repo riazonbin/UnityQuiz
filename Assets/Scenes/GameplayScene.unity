@@ -1213,6 +1213,7 @@ MonoBehaviour:
   preFab: {fileID: 2268410959842872308, guid: 681fade4452fb7140be9af919417e5ee, type: 3}
   panel: {fileID: 261097455}
   text: {fileID: 809103154}
+  gameCreation: {fileID: 1318951824}
 --- !u!1 &267728689
 GameObject:
   m_ObjectHideFlags: 0

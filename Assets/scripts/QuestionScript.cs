@@ -7,11 +7,12 @@ public class QuestionScript : MonoBehaviour
     public GameObject preFab;
     public Transform panel;
     public GameObject text;
+    public GameCreation gameCreation; 
 
     // Start is called before the first frame update
     void Start()
     {
-        Game game = GameObject.Find("ScriptHolder").GetComponent<GameCreation>().game;
+        Game game = gameCreation.game;
 
         //var question = game[Random.Range(0, Answers.Count - 1)];
         text.GetComponent<Text>().text = game.currentQuestion.Description;
