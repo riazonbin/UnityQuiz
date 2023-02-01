@@ -38,6 +38,7 @@ public class CreateKeyboard : MonoBehaviour
             {
                 child.GetComponentInChildren<Text>().text = sender.GetComponentInChildren<Text>().text;
                 sender.interactable = (false);
+                sender.transform.Translate(1000, 0, 0);
                 return;
             }
         }

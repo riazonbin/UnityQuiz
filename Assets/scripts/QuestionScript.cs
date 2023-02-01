@@ -42,6 +42,7 @@ public class QuestionScript : MonoBehaviour
                 .Where(x => x.interactable == false && x.GetComponentInChildren<Text>().text == sender.GetComponentInChildren<Text>().text).FirstOrDefault();
 
             sender.GetComponentInChildren<Text>().text = "";
+            btn.transform.Translate(-1000, 0, 0);
             btn.interactable = true;
         }
         catch { }
