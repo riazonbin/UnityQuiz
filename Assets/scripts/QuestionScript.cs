@@ -53,7 +53,7 @@ public class QuestionScript : MonoBehaviour
     {
         if (panel.GetComponentsInChildren<Button>().All(x => x.GetComponentInChildren<Text>().text != ""))
         {
-            NextQuestion();
+            CheckAnswer();
         }
     }
 
@@ -71,7 +71,7 @@ public class QuestionScript : MonoBehaviour
         catch { }
     }
 
-    public void NextQuestion()
+    public void CheckAnswer()
     {
         string answer = "";
 
