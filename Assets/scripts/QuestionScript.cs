@@ -3,21 +3,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 public class QuestionScript : MonoBehaviour
 {
     public GameObject preFab;
     public Transform panel;
     public GameObject text;
-    public GameCreation gameCreation;
     public Transform keyboardPanel;
-    public Game game;
+    private Game game;
+
+    public GameCreation gameCreation;
+    public CreateKeyboard createKeyboard;
+
     public Stack<Button> QuestionsStack { get; set; } = new Stack<Button>();
 
     // Start is called before the first frame update
     void Start()
     {
         game = gameCreation.game;
+        FillEmptyButtonsForWordGuess();
+    }
+
+    public void FillEmptyButtonsForWordGuess()
+    {
+        ClearPanelForGuess();
+
 
         //var question = game[Random.Range(0, Answers.Count - 1)];
         text.GetComponent<Text>().text = game.currentQuestion.Description;
@@ -29,10 +40,17 @@ public class QuestionScript : MonoBehaviour
         }
     }
 
+    public void ClearPanelForGuess()
+    {
+        foreach (Button child in panel.GetComponentsInChildren<Button>())
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        var test = game.currentQuestion;
         if (panel.GetComponentsInChildren<Button>().All(x => x.GetComponentInChildren<Text>().text != ""))
         {
             NextQuestion();
@@ -65,18 +83,9 @@ public class QuestionScript : MonoBehaviour
         if (game.CheckWord(answer))
         {
             game.NextQuestion();
-            text.GetComponent<Text>().text = game.currentQuestion.Description;
 
-            foreach (Button child in panel.GetComponentsInChildren<Button>())
-            {
-                Destroy(child.gameObject);
-            }
-
-            for (int i = 0; i < game.currentQuestion.Answer.Length; i++)
-            {
-                var btn = Instantiate(preFab, panel);
-                btn.GetComponent<Button>().onClick.AddListener(() => ReturnButton(btn.GetComponent<Button>()));
-            }
+            FillEmptyButtonsForWordGuess();
+            createKeyboard.FillChars();
         }
     }
 }

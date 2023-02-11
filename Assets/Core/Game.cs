@@ -83,7 +83,7 @@ namespace Assets.Core
         {
             if (Health == 1)
             {
-                GameOver();
+                //GameOver();
                 return false;
             }
             Health--;

@@ -1,4 +1,5 @@
 using Assets.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,17 +11,33 @@ public class CreateKeyboard : MonoBehaviour
     public Transform panel;
     public GameCreation gameCreation;
     public Transform questionPanel;
+    private Game game;
     // Start is called before the first frame update
     void Start()
     {
-        Game game = gameCreation.game;
 
-        foreach(var letter in game.Keyboard.CharList)
+        game = gameCreation.game;
+        FillChars();
+    }
+
+    public void FillChars()
+    {
+        ClearPanel();
+
+        foreach (var letter in game.Keyboard.CharList)
         {
             var btn = Instantiate(preFab, panel);
             btn.GetComponent<Button>().onClick.AddListener(() => ChooseLetterButton(btn.GetComponent<Button>()));
             btn.GetComponentInChildren<Text>().text = letter.ToString();
-            
+
+        }
+    }
+
+    public void ClearPanel()
+    {
+        foreach (Button child in panel.GetComponentsInChildren<Button>())
+        {
+            Destroy(child.gameObject);
         }
     }
 
