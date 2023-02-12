@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using UnityEditor.Animations;
 
 public class QuestionScript : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class QuestionScript : MonoBehaviour
     public GameObject text;
     public Transform keyboardPanel;
     private Game game;
+
+    public Animator animator;
 
     public GameCreation gameCreation;
     public CreateKeyboard createKeyboard;
@@ -51,6 +54,11 @@ public class QuestionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(animator.GetBool("IsCorrectAnswer"))
+        {
+            return;
+        }
+
         if (panel.GetComponentsInChildren<Button>().All(x => x.GetComponentInChildren<Text>().text != ""))
         {
             CheckAnswer();
@@ -82,10 +90,12 @@ public class QuestionScript : MonoBehaviour
 
         if (game.CheckWord(answer))
         {
-            game.NextQuestion();
+            animator.SetBool("IsCorrectAnswer", true);
 
-            FillEmptyButtonsForWordGuess();
-            createKeyboard.FillChars();
+            //game.NextQuestion();
+
+            //FillEmptyButtonsForWordGuess();
+            //createKeyboard.FillChars();
         }
     }
 }
