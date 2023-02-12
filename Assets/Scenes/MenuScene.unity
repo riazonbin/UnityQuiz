@@ -436,6 +436,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63199905}
   m_CullTransparentMesh: 1
+--- !u!1001 &86659882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119709, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579611092027119711, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+      propertyPath: m_Name
+      value: SoundSource
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+--- !u!114 &86659883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4579611092027119708, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+  m_PrefabInstance: {fileID: 86659882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02facd82db513db40b8c5939da70fed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &94941553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,6 +3020,14 @@ PrefabInstance:
     - target: {fileID: 629639567432424632, guid: 8dd91643589893a478bdb1e0abd0238a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952291789799610328, guid: 8dd91643589893a478bdb1e0abd0238a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 86659883}
+    - target: {fileID: 952291789799610328, guid: 8dd91643589893a478bdb1e0abd0238a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd91643589893a478bdb1e0abd0238a, type: 3}
@@ -5945,9 +6021,9 @@ MonoBehaviour:
   gameCreation: {fileID: 0}
   header: {fileID: 0}
   LevelText: {fileID: 310738151}
-  LevelExpText: {fileID: 0}
-  EnergyText: {fileID: 0}
-  CoinsText: {fileID: 0}
+  LevelExpText: {fileID: 1083268586}
+  EnergyText: {fileID: 772081428}
+  CoinsText: {fileID: 689207994}
 --- !u!114 &1715013234
 MonoBehaviour:
   m_ObjectHideFlags: 0

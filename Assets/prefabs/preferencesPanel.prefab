@@ -553,7 +553,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4453958681311390380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4579611092027119708, guid: 89adc49345ce24a4bbd17fb80a366161, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OnClick
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4908423038912165223
 GameObject:
   m_ObjectHideFlags: 0
