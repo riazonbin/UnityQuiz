@@ -4027,6 +4027,7 @@ GameObject:
   - component: {fileID: 1318951824}
   - component: {fileID: 1318951825}
   - component: {fileID: 1318951826}
+  - component: {fileID: 1318951827}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -4092,6 +4093,21 @@ MonoBehaviour:
   LevelExpText: {fileID: 2082370129}
   EnergyText: {fileID: 1176421037}
   CoinsText: {fileID: 1228005176}
+--- !u!114 &1318951827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318951821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d21a72235bb7ad4e8ebce3aca040309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeRemaining: 60
+  timeText: {fileID: 1928794573}
+  questionScript: {fileID: 261097457}
 --- !u!1 &1362720207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,6 +5495,7 @@ MonoBehaviour:
   gameCreation: {fileID: 1318951824}
   createKeyboard: {fileID: 85838616}
   questionScript: {fileID: 261097457}
+  timerScript: {fileID: 1318951827}
 --- !u!1 &1812767013
 GameObject:
   m_ObjectHideFlags: 0
@@ -7114,6 +7131,7 @@ MonoBehaviour:
   gameCreation: {fileID: 1318951824}
   createKeyboard: {fileID: 85838616}
   questionScript: {fileID: 261097457}
+  timerScript: {fileID: 1318951827}
 --- !u!1 &2137146481
 GameObject:
   m_ObjectHideFlags: 0

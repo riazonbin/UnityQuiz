@@ -10,6 +10,7 @@ public class NextWordButton : MonoBehaviour
 
     public CreateKeyboard createKeyboard;
     public QuestionScript questionScript;
+    public TimerScript timerScript;
 
     private Game game;
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class NextWordButton : MonoBehaviour
         game.NextQuestion();
         createKeyboard.FillChars();
         questionScript.FillEmptyButtonsForWordGuess();
+        timerScript.RestartTimer();
 
 
         animator.SetBool("IsTouchedNextWordBtn", true);
