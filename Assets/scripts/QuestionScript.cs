@@ -5,6 +5,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System;
 using UnityEditor.Animations;
+using Assets.Core.Models;
+using Assets;
 
 public class QuestionScript : MonoBehaviour
 {
@@ -13,11 +15,14 @@ public class QuestionScript : MonoBehaviour
     public GameObject text;
     public Transform keyboardPanel;
     private Game game;
+    private User currentUser;
 
     public Animator animator;
 
     public GameCreation gameCreation;
     public CreateKeyboard createKeyboard;
+    public UserScript userScript;
+    public DataScript dataScript;
 
     public Stack<Button> QuestionsStack { get; set; } = new Stack<Button>();
 
@@ -25,6 +30,7 @@ public class QuestionScript : MonoBehaviour
     void Start()
     {
         game = gameCreation.game;
+        currentUser = userScript.currentUser;
         FillEmptyButtonsForWordGuess();
     }
 
@@ -82,6 +88,8 @@ public class QuestionScript : MonoBehaviour
         if (game.CheckWord(answer))
         {
             animator.SetBool("IsCorrectAnswer", true);
+            currentUser.Energy -= 1;
+            currentUser.Level.CurrentExp += 10;
 
             //game.NextQuestion();
 
@@ -90,7 +98,11 @@ public class QuestionScript : MonoBehaviour
         }
         else
         {
+            currentUser.Energy -= 2;
             animator.SetBool("IsWrongAnswer", true);
         }
+
+        currentUser.RefreshData();
+        dataScript.RefreshDataAtDisplayAtGameplayScene();
     }
 }

@@ -18,7 +18,7 @@ namespace Assets.Core
 
 
         public delegate void GameOverDelegate();
-        public GameOverDelegate GameOver;
+        public GameOverDelegate GameOverEvent;
         public GameOverDelegate GameWin;
         public QuizKeyboard Keyboard { get; set; }
 

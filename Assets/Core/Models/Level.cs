@@ -19,6 +19,7 @@ namespace Assets.Core.Models
             {
                 _currentLevel = value;
                 LevelUpEvent?.Invoke();
+                RefreshDataEvent?.Invoke();
                 return;
             }
         }
@@ -42,6 +43,9 @@ namespace Assets.Core.Models
                 {
                     _currentExp = value;
                     CurrentLevelEdge += growEdge * CurrentLevel;
+
+                    RefreshDataEvent?.Invoke();
+
                     return;
                 }
 
@@ -55,7 +59,9 @@ namespace Assets.Core.Models
             }
         }
 
+        public event LevelDelegate RefreshDataEvent;
         public event LevelDelegate LevelUpEvent;
+
         public delegate void LevelDelegate();
     }
 }

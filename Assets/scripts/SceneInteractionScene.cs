@@ -1,18 +1,14 @@
-using Assets.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameCreation : MonoBehaviour
+public class SceneInteractionScene : MonoBehaviour
 {
-    public Game game;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        game = new Game();
-        game.GameOverEvent += GoToMainMenu;
-        game.GameWin += GoToMainMenu;
+        
     }
 
     // Update is called once per frame
@@ -21,8 +17,18 @@ public class GameCreation : MonoBehaviour
         
     }
 
-    void GoToMainMenu()
+    void GoToRewardsScene()
+    {
+        SceneManager.LoadScene("RewardsScene");
+    }
+
+    void GoToMenuScene()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    void GoToGameplayScene()
+    {
+        SceneManager.LoadScene("GameplayScene");
     }
 }

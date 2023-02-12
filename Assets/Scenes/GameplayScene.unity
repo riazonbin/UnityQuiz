@@ -925,6 +925,8 @@ MonoBehaviour:
   animator: {fileID: 129082507}
   gameCreation: {fileID: 1318951824}
   createKeyboard: {fileID: 85838616}
+  userScript: {fileID: 1318951825}
+  dataScript: {fileID: 1318951826}
 --- !u!1 &267728689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,7 +2154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 569280827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1318951824}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GoToMainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &569280827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4000,6 +4014,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1318951823}
   - component: {fileID: 1318951824}
+  - component: {fileID: 1318951825}
+  - component: {fileID: 1318951826}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -4034,6 +4050,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb01718f4e1377a469a02e0b989f4d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1318951825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318951821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c18926acfa6d9747aa6fe72177d2623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1318951826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318951821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324ca4ce63ce56b4bbef856acfb47655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userScript: {fileID: 1318951825}
+  gameCreation: {fileID: 1318951824}
+  header: {fileID: 875735702}
+  LevelText: {fileID: 1362720209}
+  LevelExpText: {fileID: 2082370129}
+  EnergyText: {fileID: 1176421037}
+  CoinsText: {fileID: 1228005176}
 --- !u!1 &1362720207
 GameObject:
   m_ObjectHideFlags: 0
@@ -7364,7 +7411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485169172274685745, guid: f2ded15dbccf0e64cab6c1b76fad3bff, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 485169172274685745, guid: f2ded15dbccf0e64cab6c1b76fad3bff, type: 3}
       propertyPath: m_AnchorMax.x
