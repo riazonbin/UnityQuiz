@@ -54,15 +54,6 @@ public class QuestionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(animator.GetBool("IsCorrectAnswer"))
-        {
-            return;
-        }
-
-        if (panel.GetComponentsInChildren<Button>().All(x => x.GetComponentInChildren<Text>().text != ""))
-        {
-            CheckAnswer();
-        }
     }
 
     public void ReturnButton(Button sender)
@@ -96,6 +87,10 @@ public class QuestionScript : MonoBehaviour
 
             //FillEmptyButtonsForWordGuess();
             //createKeyboard.FillChars();
+        }
+        else
+        {
+            animator.SetBool("IsWrongAnswer", true);
         }
     }
 }

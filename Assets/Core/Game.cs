@@ -11,9 +11,7 @@ namespace Assets.Core
         public Question? currentQuestion { get; set; }
         public List<Question>? Questions { get; set; }
 #nullable disable
-        public int Health { get; set; }
 
-        public const int DefaultHealth = 5;
         public const int DefaultPassedWords = 0;
 
         public bool IsWordPassed { get; set; } = false;
@@ -27,7 +25,7 @@ namespace Assets.Core
         public Game()
         {
             GetAllQuestions();
-            RestoreData();
+            //RestoreData();
             GetRandomQuestion();
             Keyboard = new QuizKeyboard(currentQuestion.Answer);
         }
@@ -51,7 +49,7 @@ namespace Assets.Core
         {
             if (!IsWordPassed)
             {
-                ReduceHealth();
+                //ReduceEnergy();
             }
             GetRandomQuestion();
             Keyboard = new QuizKeyboard(currentQuestion.Answer);
@@ -74,26 +72,26 @@ namespace Assets.Core
                 IsWordPassed = true;
                 return true;
             }
-            ReduceHealth();
+            //ReduceEnergy();
             IsWordPassed = false;
             return false;
         }
 
-        public bool ReduceHealth()
-        {
-            if (Health == 1)
-            {
-                //GameOver();
-                return false;
-            }
-            Health--;
-            return true;
-        }
+        //public bool ReduceEnergy()
+        //{
+        //    if (Health == 1)
+        //    {
+        //        //GameOver();
+        //        return false;
+        //    }
+        //    Health--;
+        //    return true;
+        //}
 
-        public void RestoreData()
-        {
-            Health = DefaultHealth;
-            PassedWords = DefaultPassedWords;
-        }
+        //public void RestoreData()
+        //{
+        //    Health = DefaultHealth;
+        //    PassedWords = DefaultPassedWords;
+        //}
     }
 }

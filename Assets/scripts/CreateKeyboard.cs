@@ -2,6 +2,7 @@ using Assets.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,9 @@ public class CreateKeyboard : MonoBehaviour
     public GameCreation gameCreation;
     public Transform questionPanel;
     private Game game;
+
+    public QuestionScript questionScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,8 +60,18 @@ public class CreateKeyboard : MonoBehaviour
                 child.GetComponentInChildren<Text>().text = sender.GetComponentInChildren<Text>().text;
                 sender.interactable = (false);
                 sender.transform.Translate(1000, 0, 0);
-                return;
+                break;
             }
+        }
+
+        if(questionScript.animator.GetBool("IsWrongAnswer") || questionScript.animator.GetBool("IsCorrectAnswer"))
+        {
+            return;
+        }
+
+        if (questionPanel.GetComponentsInChildren<Button>().All(x => x.GetComponentInChildren<Text>().text != ""))
+        {
+            questionScript.CheckAnswer();
         }
     }
 }
