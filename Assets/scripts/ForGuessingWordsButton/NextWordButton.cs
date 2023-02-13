@@ -33,6 +33,7 @@ public class NextWordButton : MonoBehaviour
         game.NextQuestion();
         createKeyboard.FillChars();
         questionScript.FillEmptyButtonsForWordGuess();
+        questionScript.UnlockPanel();
         timerScript.RestartTimer();
 
 

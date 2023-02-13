@@ -1,4 +1,6 @@
 using Assets.Core;
+using Assets.Core.Enums;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +12,17 @@ public class GameCreation : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        game = new Game();
+        game = new Game(Enum.TryParse(PlayerPrefs.GetString("gameMode"), true, out GameTypesEnum gameMode) 
+            ? gameMode : default)
+        {
+            GameType = gameMode
+        };
         game.GameOverEvent += GoToMainMenu;
         game.GameWin += GoToMainMenu;
+    }
+
+    void Start()
+    {
     }
 
     // Update is called once per frame

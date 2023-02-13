@@ -53,6 +53,11 @@ public class CreateKeyboard : MonoBehaviour
 
     public void ChooseLetterButton(Button sender)
     {
+        if (questionScript.animator.GetBool("IsWrongAnswer") || questionScript.animator.GetBool("IsCorrectAnswer"))
+        {
+            return;
+        }
+
         foreach (Button child in questionPanel.GetComponentsInChildren<Button>())
         {
             if (child.GetComponentInChildren<Text>().text == "")
@@ -64,10 +69,6 @@ public class CreateKeyboard : MonoBehaviour
             }
         }
 
-        if(questionScript.animator.GetBool("IsWrongAnswer") || questionScript.animator.GetBool("IsCorrectAnswer"))
-        {
-            return;
-        }
 
         if (questionPanel.GetComponentsInChildren<Button>().All(x => x.GetComponentInChildren<Text>().text != ""))
         {

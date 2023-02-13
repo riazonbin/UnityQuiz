@@ -102,7 +102,24 @@ public class QuestionScript : MonoBehaviour
             animator.SetBool("IsWrongAnswer", true);
         }
 
+        BlockPanel();
         currentUser.RefreshData();
         dataScript.RefreshDataAtDisplayAtGameplayScene();
+    }
+
+    public void BlockPanel()
+    {
+        foreach(Button button in panel.GetComponentsInChildren<Button>())
+        {
+            button.interactable = false;
+        }
+    }
+
+    public void UnlockPanel()
+    {
+        foreach (Button button in panel.GetComponentsInChildren<Button>())
+        {
+            button.interactable = true;
+        }
     }
 }

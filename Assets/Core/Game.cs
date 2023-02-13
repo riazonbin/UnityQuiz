@@ -1,4 +1,5 @@
-﻿using Assets.Core.Models;
+﻿using Assets.Core.Enums;
+using Assets.Core.Models;
 using System;
 using System.Collections.Generic;
 
@@ -14,6 +15,8 @@ namespace Assets.Core
 
         public const int DefaultPassedWords = 0;
 
+        public GameTypesEnum GameType = GameTypesEnum.Random;
+
         public bool IsWordPassed { get; set; } = false;
 
 
@@ -22,8 +25,9 @@ namespace Assets.Core
         public GameOverDelegate GameWin;
         public QuizKeyboard Keyboard { get; set; }
 
-        public Game()
+        public Game(GameTypesEnum gameType)
         {
+            GameType = gameType;
             GetAllQuestions();
             //RestoreData();
             GetRandomQuestion();
@@ -61,7 +65,31 @@ namespace Assets.Core
             //var collection = connection.GetAllQuestions();
 
             //return Questions = collection.ShuffleList();
-            return Questions = DefaultQuestions.Questions.ShuffleList();
+            switch(GameType)
+            {
+                case GameTypesEnum.Art: 
+                    return Questions = DefaultQuestions.ArtQuestions.ShuffleList();
+
+                case GameTypesEnum.History:
+                    return Questions = DefaultQuestions.HistoryQuestions.ShuffleList();
+
+                case GameTypesEnum.World:
+                    return Questions = DefaultQuestions.WorldQuestions.ShuffleList();
+
+                case GameTypesEnum.Science:
+                    return Questions = DefaultQuestions.ScienceQuestions.ShuffleList();
+
+                case GameTypesEnum.Random:
+                    return Questions = DefaultQuestions.Questions.ShuffleList();
+
+                case GameTypesEnum.Cinema:
+                    return Questions = DefaultQuestions.CinemaQuestions.ShuffleList();
+
+                case GameTypesEnum.Sport:
+                    return Questions = DefaultQuestions.SportQuestions.ShuffleList();
+
+                default: return Questions = DefaultQuestions.Questions.ShuffleList();
+            }
         }
 
         public bool CheckWord(string word)
