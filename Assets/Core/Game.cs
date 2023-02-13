@@ -80,7 +80,7 @@ namespace Assets.Core
                     return Questions = DefaultQuestions.ScienceQuestions.ShuffleList();
 
                 case GameTypesEnum.Random:
-                    return Questions = DefaultQuestions.Questions.ShuffleList();
+                    return Questions = DefaultQuestions.RandomQuestions.ShuffleList();
 
                 case GameTypesEnum.Cinema:
                     return Questions = DefaultQuestions.CinemaQuestions.ShuffleList();
@@ -88,7 +88,10 @@ namespace Assets.Core
                 case GameTypesEnum.Sport:
                     return Questions = DefaultQuestions.SportQuestions.ShuffleList();
 
-                default: return Questions = DefaultQuestions.Questions.ShuffleList();
+                case GameTypesEnum.EndThePhrase:
+                    return Questions = DefaultQuestions.EndPhraseQuestions.ShuffleList();
+
+                default: return Questions = DefaultQuestions.RandomQuestions.ShuffleList();
             }
         }
 

@@ -4105,9 +4105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d21a72235bb7ad4e8ebce3aca040309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 60
+  questionTimeRemaining: 0
+  energyTimeRemaining: 0
   timeText: {fileID: 1928794573}
+  timeEnergyText: {fileID: 1507756675}
   questionScript: {fileID: 261097457}
+  userScript: {fileID: 1318951825}
 --- !u!1 &1362720207
 GameObject:
   m_ObjectHideFlags: 0

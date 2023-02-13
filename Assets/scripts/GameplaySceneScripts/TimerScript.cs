@@ -7,29 +7,43 @@ using UnityEngine.UI;
 public class TimerScript : MonoBehaviour
 {
     public const int maxTime = 90;
+    public const int energyTimer = 10;
 
-    public float timeRemaining;
+    public float questionTimeRemaining;
+    public float energyTimeRemaining;
+
     private bool timerIsRunning = false;
     public Text timeText;
+    public Text timeEnergyText;
+
     public QuestionScript questionScript;
+    public UserScript userScript;
+    public DataScript dataScript;
 
     // Start is called before the first frame update
     void Start()
     {
         timerIsRunning = true;
-        timeRemaining = maxTime;
+        questionTimeRemaining = maxTime;
+        energyTimeRemaining = energyTimer;
         DisplayTime();
     }
 
     // Update is called once per frame
     void Update()
     {
+        EnergyTimerWork();
+
         if (!timerIsRunning)
         {
             return;
         }
 
+        TimerWork();
+    }
 
+    private void TimerWork()
+    {
         if (questionScript.animator.GetBool("IsWrongAnswer") || questionScript.animator.GetBool("IsCorrectAnswer"))
         {
             timerIsRunning = false;
@@ -38,28 +52,59 @@ public class TimerScript : MonoBehaviour
 
         DisplayTime();
 
-        if (timeRemaining >= 0)
+        if (questionTimeRemaining >= 0)
         {
-            timeRemaining -= Time.deltaTime;
+            questionTimeRemaining -= Time.deltaTime;
         }
         else
         {
-            timeRemaining = 0;
+            questionTimeRemaining = 0;
             timerIsRunning = false;
             questionScript.CheckAnswer();
         }
     }
 
+
+    private void EnergyTimerWork()
+    {
+
+        DisplayEnergyTimer();
+
+        if (energyTimeRemaining >= 0)
+        {
+            energyTimeRemaining -= Time.deltaTime;
+        }
+        else
+        {
+            energyTimeRemaining = 0;
+            RestartEnergyTimer();
+        }
+    }
+
+    private void DisplayEnergyTimer()
+    {
+        var time = TimeSpan.FromSeconds(energyTimeRemaining);
+
+        timeEnergyText.text = string.Format("{0:00}:{1:00}", time.Minutes, time.Seconds);
+    }
+
     private void DisplayTime()
     {
-        var time = TimeSpan.FromSeconds(timeRemaining);
+        var time = TimeSpan.FromSeconds(questionTimeRemaining);
 
         timeText.text = string.Format("{0:00}:{1:00}", time.Minutes, time.Seconds);
     }
 
     public void RestartTimer()
     {
-        timeRemaining = maxTime;
+        questionTimeRemaining = maxTime;
         timerIsRunning= true;
+    }
+
+    public void RestartEnergyTimer()
+    {
+        userScript.currentUser.Energy += 1;
+        energyTimeRemaining = energyTimer;
+        dataScript.RefreshDataAtDisplayAtGameplayScene();
     }
 }

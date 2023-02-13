@@ -9,7 +9,7 @@ namespace Assets.Core
 {
     public static class DefaultQuestions
     {
-        public static List<Question> Questions = new()
+        public static List<Question> RandomQuestions = new()
         {
             new Question{ Description = "Староста 320й группы?", Answer = "Рома"},
             new Question{ Description = "Самая большая страна в мире?", Answer = "Россия"},
@@ -82,6 +82,13 @@ namespace Assets.Core
             new Question{ Description = "Что является началом пути к финишу в спортивных соревнованиях?", Answer = "Старт" },
             new Question{ Description = "Сколько игроков принимает участие в регби?", Answer = "15 игроков в каждой команде" },
             new Question{ Description = "Как называются гонки на мотоциклах по мотодрому?", Answer = "Спидвей" }
+        };
+
+        public static List<Question> EndPhraseQuestions = new()
+        {
+            new Question{ Description = "Зимой и летом - одним...?", Answer = "Цветом" },
+            new Question{ Description = "Мы считали дырки в сыре три плюс два равно...?", Answer = "Пять" },
+            new Question{ Description = "Мама сшила мне штаны из березовой коры, чтобы тело не потело, не кусали...?", Answer = "Комары" },
         };
     }
 }
