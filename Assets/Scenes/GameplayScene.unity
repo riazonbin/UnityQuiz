@@ -4028,6 +4028,7 @@ GameObject:
   - component: {fileID: 1318951825}
   - component: {fileID: 1318951826}
   - component: {fileID: 1318951827}
+  - component: {fileID: 1318951828}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -4106,11 +4107,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionTimeRemaining: 0
-  energyTimeRemaining: 0
   timeText: {fileID: 1928794573}
+  questionScript: {fileID: 261097457}
+--- !u!114 &1318951828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318951821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab34fa93e9982142a959adc0d914bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyTimeRemaining: 0
   timeEnergyText: {fileID: 1507756675}
   questionScript: {fileID: 261097457}
   userScript: {fileID: 1318951825}
+  dataScript: {fileID: 1318951826}
 --- !u!1 &1362720207
 GameObject:
   m_ObjectHideFlags: 0

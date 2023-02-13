@@ -6021,6 +6021,7 @@ GameObject:
   - component: {fileID: 1715013232}
   - component: {fileID: 1715013234}
   - component: {fileID: 1715013233}
+  - component: {fileID: 1715013235}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6121,6 +6122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c18926acfa6d9747aa6fe72177d2623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1715013235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715013228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab34fa93e9982142a959adc0d914bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyTimeRemaining: 0
+  timeEnergyText: {fileID: 743718007}
+  userScript: {fileID: 1715013234}
+  dataScript: {fileID: 1715013233}
 --- !u!1 &1792924485
 GameObject:
   m_ObjectHideFlags: 0
